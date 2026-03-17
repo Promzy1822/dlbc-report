@@ -29,7 +29,7 @@ export default function PrintPage() {
         .order('submitted_at', { ascending: false })
 
       if (data && data.length > 0) {
-        const weeks = [...new Set(data.map((r: WeeklyReport) => r.week_no))] as string[]
+        const weeks = Array.from(new Set(data.map((r: WeeklyReport) => r.week_no))) as string[]
         setAllWeeks(weeks)
         const latestWeek = weeks[0]
         setSelectedWeek(latestWeek)
