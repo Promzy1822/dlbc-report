@@ -109,7 +109,7 @@ export default function EntryPage() {
       toast('Error saving: ' + error.message, 'error')
     } else {
       toast(`${selectedDistrict} district data saved!`)
-      setSubmittedDistricts(prev => [...new Set([...prev, selectedDistrict])])
+      setSubmittedDistricts(prev => Array.from(new Set([...prev, selectedDistrict])))
     }
     setSaving(false)
   }
