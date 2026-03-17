@@ -78,7 +78,7 @@ export default function EntryPage() {
       .from('weekly_reports')
       .select('district')
       .order('submitted_at', { ascending: false })
-    if (all) setSubmittedDistricts([...new Set(all.map((r: any) => r.district))])
+    if (all) setSubmittedDistricts(Array.from(new Set(all.map((r: any) => r.district))))
   }
 
   function setField<K extends keyof WeeklyReport>(key: K, value: WeeklyReport[K]) {
